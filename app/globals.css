@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 body {
+  margin: 0;
+  background: radial-gradient(#0d0e10, #0d0e10);
   font-family: Arial, Helvetica, sans-serif;
 }
 

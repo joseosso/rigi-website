@@ -1,4 +1,3 @@
-import { ModeToggle } from "@/components/theme/mode-toggle";
 import Sidebar from "./sidebar";
 import NavLink from "./nav-link";
 import HeaderBackground from "./header-background";
@@ -17,7 +16,6 @@ const Navbar = () => {
       <nav className="h-20 z-[49] items-center w-full">
         <div className="h-full flex justify-between items-center lg:hidden">
           <Sidebar />
-          <ModeToggle />
         </div>
         <div className="hidden lg:flex  h-full justify-between m-auto items-center">
           <div className="h-full flex gap-x-10 items-center">
@@ -32,7 +30,6 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <ModeToggle />
         </div>
       </nav>
     </header>
