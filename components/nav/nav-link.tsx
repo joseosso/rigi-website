@@ -16,16 +16,19 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   };
 
   return (
-    <Link
-      href={href}
-      scroll={true}
-      onClick={(e) => {
-        e.preventDefault();
-        scrollToSection(href);
-      }}
-    >
-      {children}
-    </Link>
+    <div className="transform">
+      <Link
+        className="px-1 hover:scale-110 transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_15px_rgba(220,38,38,0.7)]"
+        href={href}
+        scroll={true}
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection(href);
+        }}
+      >
+        {children}
+      </Link>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
-import Sidebar from "./sidebar";
-import NavLink from "./nav-link";
-import HeaderBackground from "./header-background";
+import Sidebar from "@/components/nav/sidebar";
+import NavLink from "@/components/nav/nav-link";
 
 const Navbar = () => {
   const links = [
@@ -11,8 +10,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="p-8 md:px-[10%]">
-      <HeaderBackground />
+    <header className="p-8 md:px-[10%] bg-primary">
       <nav className="h-20 z-[49] items-center w-full">
         <div className="h-full flex justify-between items-center lg:hidden">
           <Sidebar />
