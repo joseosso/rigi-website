@@ -1,4 +1,6 @@
-import prisma from '../lib/db'
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 async function main() {
   const person = await prisma.person.create({
@@ -7,25 +9,25 @@ async function main() {
       type: "Student",
       department: "Computer Science",
       interests: "AI, Web Development",
-      github: "johndoe"
-    }
-  })
+      github: "johndoe",
+    },
+  });
 
   const aiTopic = await prisma.topic.create({
     data: {
       name: "artificial-intelligence",
       label: "AI",
-      colour: "#FF0000"
-    }
-  })
+      colour: "#FF0000",
+    },
+  });
 
   const webTopic = await prisma.topic.create({
     data: {
       name: "web-development",
       label: "Web",
-      colour: "#0000FF"
-    }
-  })
+      colour: "#0000FF",
+    },
+  });
 
   await prisma.project.create({
     data: {
@@ -34,14 +36,11 @@ async function main() {
       authors: "John Doe",
       studentId: person.id,
       topics: {
-        connect: [
-          { id: aiTopic.id },
-          { id: webTopic.id }
-        ]
-      }
-    }
-  })
+        connect: [{ id: aiTopic.id }, { id: webTopic.id }],
+      },
+    },
+  });
 }
 main()
   .catch(console.error)
-  .finally(() => prisma.$disconnect())
+  .finally(() => prisma.$disconnect());
