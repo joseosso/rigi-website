@@ -1,16 +1,12 @@
-import { Button } from '@/components/ui/button';
-import ModeToggle from '@/components/ui/mode-toggle';
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const Sidebar = () => {
   return (
@@ -20,7 +16,7 @@ const Sidebar = () => {
           <Menu size={24} />
         </Button>
       </SheetTrigger>
-      <SheetContent side={'left'} className="bg-primary border-none">
+      <SheetContent side={"left"} className="bg-primary border-none">
         <SheetHeader>
           <SheetTitle>
             <h1 className="text-2xl text-primary-foreground">Rigi Research</h1>

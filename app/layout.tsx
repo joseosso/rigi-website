@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import Navbar from "./_components/navbar";
+import Nav from "./_components/nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +26,8 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="rigi-platform-theme"
         >
-          <Navbar />
-          {children}{" "}
+          <Nav />
+          {children}
         </ThemeProvider>
       </body>
     </html>

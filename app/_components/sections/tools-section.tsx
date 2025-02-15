@@ -1,7 +1,7 @@
 const ToolsSection = () => {
   return (
-    <section className="w-full h-fit">
-      <h2 className="text-3xl font-semibold">Tools</h2>
+    <section id="tools" className="w-[80%] h-fit m-auto">
+      <h2 className="text-3xl font-semibold"></h2>
     </section>
   );
 };
