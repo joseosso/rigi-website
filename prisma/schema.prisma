@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Person {
+  id         Int       @id @default(autoincrement())
+  name       String
+  photo_url  String?
+  type       String
+  department String
+  active     Boolean   @default(true)
+  joined     DateTime  @default(now())
+  interests  String?
+  github     String?
+  linkedin   String?
+  projects   Project[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Project {
+  id               Int       @id @default(autoincrement())
+  name             String
+  tool             Boolean   @default(false)
+  published        Boolean   @default(false)
+  date_published   DateTime?
+  logo_url         String?
+  description      String
+  app_link         String?
+  source_code_link String?
+  publication_link String?
+  authors          String
+  topics           Topic[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  studentId        Int
+  // Make next field a list of Person
+  student          Person    @relation(fields: [studentId], references: [id])
+}
+
+model Topic {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  label     String    @unique
+  colour    String    @unique
+  projects  Project[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
