@@ -10,7 +10,7 @@ datasource db {
 model Person {
   id         Int       @id @default(autoincrement())
   name       String
-  photo_url  String?
+  photoIdentifier  String?
   type       String
   department String
   active     Boolean   @default(true)
@@ -18,7 +18,7 @@ model Person {
   interests  String?
   github     String?
   linkedin   String?
-  projects   Project[]
+  projects Project[] @relation("PersonToProject", references: [id])
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 }
@@ -28,19 +28,17 @@ model Project {
   name             String
   tool             Boolean   @default(false)
   published        Boolean   @default(false)
-  date_published   DateTime?
-  logo_url         String?
+  datePublished   DateTime?
+  logoUrl         String?
   description      String
-  app_link         String?
-  source_code_link String?
-  publication_link String?
+  appLink         String?
+  sourceCodeLink String?
+  publicationLink String?
   authors          String
   topics           Topic[]
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
-  studentId        Int
-  // Make next field a list of Person
-  student          Person    @relation(fields: [studentId], references: [id])
+  rigiContributors          Person[] @relation("PersonToProject", references: [id])
 }
 
 model Topic {
@@ -48,7 +46,7 @@ model Topic {
   name      String    @unique
   label     String    @unique
   colour    String    @unique
-  projects  Project[]
+  projects Project[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
