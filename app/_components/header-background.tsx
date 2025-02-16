@@ -6,11 +6,11 @@ const HeaderBackground = () => {
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop
               offset="0%"
-              style={{ stopColor: "#8B0000", stopOpacity: "1" }}
+              style={{ stopColor: "#800000", stopOpacity: "1" }}
             />
             <stop
               offset="100%"
-              style={{ stopColor: "#990000", stopOpacity: "1" }}
+              style={{ stopColor: "#A30000", stopOpacity: "1" }}
             />
           </linearGradient>
         </defs>
