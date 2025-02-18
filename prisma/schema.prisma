@@ -18,7 +18,7 @@ model Person {
   interests       String?
   github          String?
   linkedin        String?
-  projects        Project[]
+  projects        Project[] @relation("rigiContributors")
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 }
@@ -35,18 +35,18 @@ model Project {
   sourceCodeLink   String?
   publicationLink  String?
   authors          String
-  topics           Topic[]
+  topics           Topic[]   @relation("projects")
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
-  rigiContributors Person[]
+  rigiContributors Person[]  @relation("rigiContributors")
 }
 
 model Topic {
   id        Int       @id @default(autoincrement())
   name      String
   label     String
-  colour    String
-  projects  Project[]
+  colour    String    @unique
+  projects  Project[] @relation("projects")
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
