@@ -205,8 +205,8 @@ async function main() {
   const projectEntities = await createInitialProjectData();
   const topicEntities = await createInitialTopicData();
 
-  await updateRelationships(personEntities, projectEntities, topicEntities);
+  // await updateRelationships(personEntities, projectEntities, topicEntities);
 }
 main()
-  .catch(console.error)
+  .catch((e) => console.log(e))
   .finally(() => prisma.$disconnect());
