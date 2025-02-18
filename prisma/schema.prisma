@@ -8,19 +8,19 @@ datasource db {
 }
 
 model Person {
-  id         Int       @id @default(autoincrement())
-  name       String
-  photoIdentifier  String?
-  type       String
-  department String
-  active     Boolean   @default(true)
-  joined     DateTime  @default(now())
-  interests  String?
-  github     String?
-  linkedin   String?
-  projects Project[]
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  id              Int       @id @default(autoincrement())
+  name            String
+  photoIdentifier String?
+  type            String
+  department      String
+  active          Boolean   @default(true)
+  joined          DateTime  @default(now())
+  interests       String?
+  github          String?
+  linkedin        String?
+  projects        Project[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 }
 
 model Project {
@@ -28,25 +28,25 @@ model Project {
   name             String
   tool             Boolean   @default(false)
   published        Boolean   @default(false)
-  datePublished   DateTime?
-  logoUrl         String?
+  datePublished    DateTime?
+  logoUrl          String?
   description      String
-  appLink         String?
-  sourceCodeLink String?
-  publicationLink String?
+  appLink          String?
+  sourceCodeLink   String?
+  publicationLink  String?
   authors          String
   topics           Topic[]
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
-  rigiContributors          Person[] @relation("PersonToProject", references: [id])
+  rigiContributors Person[]
 }
 
 model Topic {
   id        Int       @id @default(autoincrement())
-  name      String    @unique
-  label     String    @unique
-  colour    String    @unique
-  projects Project[]
+  name      String
+  label     String
+  colour    String
+  projects  Project[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
