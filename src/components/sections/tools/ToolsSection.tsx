@@ -1,5 +1,5 @@
-import Section from "@/components/ui/section";
-import ToolsGrid from "./tools-grid";
+import Section from '@/components/ui/section';
+import ToolsGrid from './ToolsGrid';
 
 const ToolsSection = () => {
   return (

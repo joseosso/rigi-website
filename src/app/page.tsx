@@ -1,5 +1,5 @@
-import WelcomeSection from "@/components/sections/welcome-section";
-import ToolsSection from "@/components/sections/tools-section";
+import WelcomeSection from '@/components/sections/WelcomeSection';
+import ToolsSection from '@/components/sections/tools/ToolsSection';
 
 export default function Home() {
   return (

@@ -1,0 +1,27 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import Navbar from '@/components/nav/Navbar';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'Rigi Research',
+  description: 'A Platform for All Our Research Projects',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(inter.className)}>
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  );
+}
